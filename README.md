@@ -22,6 +22,8 @@ In your `bsconfig.json`, add:
 ## Usage
 
 ```rescript
+module Iterator = Js_iterator
+
 let myIterable = getIterator() // previously defined function.
 
 let current = myIterable->Iterator.next
