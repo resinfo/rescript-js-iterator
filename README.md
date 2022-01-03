@@ -14,9 +14,8 @@ npm install --save rescript-js-iterator
 In your `bsconfig.json`, add:
 
 ```json
-  "bs-dependencies": [
-    "rescript-js-iterator"
-  ]
+{
+  "bs-dependencies": ["rescript-js-iterator"]
 }
 ```
 
