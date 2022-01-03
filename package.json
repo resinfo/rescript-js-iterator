@@ -6,6 +6,15 @@
   "repository": "https://github.com/resinfo/rescript-js-iterator.git",
   "author": "Oliver Fencott <oliverfencott@gmail.com>",
   "license": "MIT",
+  "files": [
+    "src/js_iterator.res",
+    "bsconfig.json"
+  ],
+  "keywords": [
+    "rescript",
+    "iterator",
+    "bindings"
+  ],
   "devDependencies": {
     "ava": "^3.15.0",
     "rescript": "^9.1.4",
