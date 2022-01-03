@@ -26,4 +26,5 @@ lib/bs
 .bsb.lock
 /node_modules/
 
-src/**.cjs
+src/**/*.cjs
+test/**/*.cjs
