@@ -1,0 +1,17 @@
+{
+  "name": "rescript-js-iterator",
+  "version": "1.0.0",
+  "package-specs": {
+    "in-source": true,
+    "module": "commonjs",
+    "suffix": ".cjs"
+  },
+  "sources": [{
+    "dir": "src",
+    "subdirs": true
+  }, {
+    "dir": "test",
+    "type": "dev"
+  }],
+  "bs-dev-dependencies": ["rescript-ava"]
+}
