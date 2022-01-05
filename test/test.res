@@ -93,3 +93,71 @@ test("[properties] Iterate array", t => {
   t->true_(current.done, ())
   t->is(current.value, None, ())
 })
+
+test("Iterator.forEach(t, fn)", t => {
+  let value = "hello"
+  let i = iterator(value)
+
+  let counter = ref(-1)
+
+  i->Iterator.forEach((. x) => {
+    counter := counter.contents + 1
+    t->is(value->Js.String2.get(counter.contents), x, ())
+  })
+
+  let value = "9876543210"
+  let i = iterator(value)
+
+  let counter = ref(-1)
+
+  i->Iterator.forEach((. x) => {
+    counter := counter.contents + 1
+    t->is(value->Js.String2.get(counter.contents), x, ())
+  })
+
+  let value = [{"a": "a"}, {"a": "b"}, {"a": "c"}]
+  let i = iterator(value)
+
+  let counter = ref(-1)
+
+  i->Iterator.forEach((. x) => {
+    counter := counter.contents + 1
+    t->is(value->Js.Array2.unsafe_get(counter.contents), x, ())
+  })
+
+  let value = [None, Some(1), Some(0), None]
+  let i = iterator(value)
+
+  let counter = ref(-1)
+
+  i->Iterator.forEach((. x) => {
+    counter := counter.contents + 1
+    t->is(value->Js.Array2.unsafe_get(counter.contents), x, ())
+  })
+
+  let value = [None, Some(1), Some(0), None]
+  let i = iterator(value)
+
+  let counter = ref(-1)
+
+  i->Iterator.forEach((. x) => {
+    counter := counter.contents + 1
+    t->is(value->Js.Array2.unsafe_get(counter.contents), x, ())
+  })
+
+  let value = [
+    None,
+    Some(Some(Some([{"a": "a"}]))),
+    Some(Some(Some([{"a": "b"}, {"a": "c"}]))),
+    Some(Some(None)),
+    Some(None),
+  ]
+  let i = iterator(value)
+
+  let counter = ref(-1)
+
+  i->Iterator.forEach((. x) => {
+    counter := counter.contents + 1
+    t->is(value->Js.Array2.unsafe_get(counter.contents), x, ())
+  })
+})

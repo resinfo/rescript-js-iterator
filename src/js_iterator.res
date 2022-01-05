@@ -20,3 +20,19 @@ external done: value<'value> => bool = "done"
 @ocaml.doc("Any JavaScript value returned by the iterator. Can be omitted when `done` is `true`.")
 @get
 external value: value<'value> => option<'value> = "value"
+
+@ocaml.doc("Convenience function to iterate in lieu of the native JavaScript `for (const x of iterable)` syntax.
+
+Be aware that this must still be passed an `Iterator.t`, *not* a raw value; this is not a drop-in replacement for `for (const x of iterable)`")
+let forEach = (t, fn) => {
+  let rec loop = t => {
+    let next = t->next
+
+    if !(next->done) {
+      fn(. next->value->Belt.Option.getUnsafe)
+      loop(t)
+    }
+  }
+
+  loop(t)
+}
